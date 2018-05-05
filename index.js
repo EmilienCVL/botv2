@@ -14,4 +14,8 @@ bot.on("guildMemberAdd", member => {
     let role = member.guild.roles.find("name", "Class-D");
     member.guild.channels.find("name", "welcome").send(`:spy:Le SCP- ${member.user.username} vient d'être capturé par la Fondation.`)
     member.addRole(role)
+})
+
+bot.on("guildMemberRemove", member => {
+    member.guild.channels.find("name", "welcome").send(`:spy:Le SCP- ${member.user.username} vient d'être tué par la Fondation.`)
 });
