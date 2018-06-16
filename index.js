@@ -4,7 +4,7 @@ var bot = new Discord.Client();
 var prefix = ("!");
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: {name: 'tirer sur des bouteilles', type: 2} });
+    bot.user.setPresence({ game: {name: 'tirer sur des bouteilles', type: 1} });
     console.log("Pew Pew opérationnel");
 });
 
