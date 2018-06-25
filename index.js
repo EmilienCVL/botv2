@@ -11,7 +11,7 @@ bot.on('ready', () => {
 bot.login(process.env.TOKEN);
 
 bot.on("guildMemberAdd", member => {
-    let role = member.guild.roles.find("name", "Tueur à la clé à molette 🔧");
+    let role = member.guild.roles.find("name", "Tueurs Novices");
     member.guild.channels.find("name", "nouveaux-arrivants").send(`HAUT LES MAINS PEAU DE LAPIN ${member.user.username} EST LA :gun:`)
     member.addRole(role)
 })
