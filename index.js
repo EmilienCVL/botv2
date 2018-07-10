@@ -4,7 +4,7 @@ var bot = new Discord.Client();
 var prefix = ("!");
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: {name: 'interviewer un Kiwi', type: 2} });
+    bot.user.setPresence({ game: {name: 'interviewer un Kiwi', type: 3} });
     console.log("Carte Kiwi opérationnelle");
 });
 
