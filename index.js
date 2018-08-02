@@ -1,5 +1,3 @@
-import { Webhook } from "discord.js";
-
 const Discord = require("discord.js");
 
 var bot = new Discord.Client();
@@ -90,13 +88,7 @@ bot.on('message', message => {
                 .setColor('#F49301')
              message.author.send(purge_embed);
             }
-        } purge();
-        
-    }
-
-    
+        } purge();        
+    }   
 }
-
-    
-
 });
