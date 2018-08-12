@@ -1,94 +1,88 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 
-var bot = new Discord.Client();
+const bot = new Discord.Client();
+
 var prefix = ("!");
-
-bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: 'Taupe`Info', type: 0} });
-    console.log("Taupe'Info ✔");
-});
 
 bot.login(process.env.TOKEN);
 
-bot.on('message', message => {
-    if (message.content === prefix + "help"){
-        var help_embed = new Discord.RichEmbed()
-            .setTitle("ElityBot | Commandes")
-            .setDescription("[►](1) !help » Pour afficher les commandes." + "\n[►](2) !ip » Adresse du serveur Minecraft." + "\n[►](3) !mumble » Adresse du serveur Mumble." + "\n[►](4) !boutique » Boutique du serveur." + "\n[►](5) !twitter » Le Twitter d'ElityGames." + "\n[►](6) !staff » Le Staff d'ElitGames.")
-            .setColor('#F49301')
-            message.author.sendEmbed(help_embed);
-            if (message.guild != null){
-                message.delete();
-                }
-        console.log("Commande Help Demandée.");
-    }
-
-    if (message.content === prefix + "ip"){
-        var minecraft_embed = new Discord.RichEmbed()
-            .setTitle("ElityBot | Minecraft")
-            .setDescription("Adresse » mc.elitygames.fr")
-            .setColor('#F49301')
-            message.author.sendEmbed(minecraft_embed);
-            if (message.guild != null){
-                message.delete();
-                }
-    }
-
-    else if (message.content.startsWith(prefix + "purge")){
-        var purge_embed = new Discord.RichEmbed();
-        if (message.guild === null){
-            purge_embed.setTitle("ElityBot | Purge")
-            .setDescription("Vous devez être sur un putain de discord.")
-            .setColor('#F49301')
-            message.author.send(purge_embed);
-            return;
-        }
-        let joueur = message.guild.roles.find("name", "• Joueur");
-        let tech = message.guild.roles.find("name", "• Technicien");
-    
-        if (!message.member.roles.has(joeur.id) && !message.member.roles.has(tech.id)){
-            purge_embed.setTitle("ElityBot | Purge")
-            .setDescription("Vous n'avez pas la permission d'effectuer cette commande.")
-            .setColor('#F49301')
-            message.author.send(purge_embed);
-            message.delete();
-            return;
-        }else {
-            async function purge() {
-                
-            
-            var cont = message.content.slice(prefix.length).split(" ");
-            var args = cont.slice(1);
-            if(args[0] === null) {
-                purge_embed.setTitle("ElityBot | Purge")
-                .setDescription("Syntaxe incorrecte : !purge [nombre].")
-                .setColor('#F49301')
-                message.author.send(purge_embed);
-                message.delete();
-            }else {
-                var nombre = parseInt(args[0]) + 1;
-                if (nombre > 100){
-                    nombre = 100;
-                }
-                if (isNaN(nombre)){
-                    purge_embed.setTitle("ElityBot | Purge")
-                    .setDescription("Syntaxe incorrecte : !purge [nombre].")
-                    .setColor('#F49301')
-                    message.author.send(purge_embed);
-                    message.delete();
-                    return;
-                }
-                var fetched = await message.channel.fetchMessages({limit:nombre});
-                message.channel.bulkDelete(fetched);
-                   
-                
-
-                purge_embed.setTitle("ElityBot | Purge")
-                .setDescription("Vous avez supprimé " + fetched.size + " message(s).")
-                .setColor('#F49301')
-             message.author.send(purge_embed);
-            }
-        } purge();        
-    }   
-}
+bot.on('ready', () => {
+    bot.user.setPresence({ game: { name: '!infos • Private Game', type: 0} });
+    console.log("Taupe'Info ✔");
 });
+
+bot.on("guildMemberAdd", member => {
+    let role = member.guild.roles.find("name", "• Joueur");
+    member.addRole(role)
+});
+
+bot.on('message', message => {
+    if(message.content[0] === prefix) {
+        if(message.content === prefix + 'notif') {
+            let but = message.guild.roles.find('name', '• Notif Game')
+            if(message.member.roles.find('name', '• Notif Game')) {
+                message.member.removeRole(but)
+                message.reply("notifications désactivées.")
+            }
+            else {
+                message.member.addRole(but)
+                message.reply("notifications activées.")
+            }
+        }
+    }
+})
+
+bot.on('message', message => {
+
+    if (message.content === prefix + "help"){
+        var aide_embed = new Discord.RichEmbed()
+        .setTitle("Taupe`Info • Help")
+        .addField("!help", "Accès aux commandes de Taupe`Info.")
+        .addField("!infos", "Informations relatives au Mumble, Serveur ...")
+        .addField("!notif", "Vous permet d'être notifié ou non pour les annonces.")
+        .setFooter('Taupe`Info • mc.elitygames.fr')
+        .setColor('#F49301')
+        message.channel.sendEmbed(aide_embed);
+        if (message.guild != null){
+            message.delete();
+        }
+    }
+
+    if (message.content === prefix + "infos"){
+        var infos_embed = new Discord.RichEmbed()
+            .setTitle("Taupe`Info • Informations")
+            .addField("Serveur ▸", "mc.elitygames.fr | Host 3")
+            .addField("Mumble ▸", "IP » pvelity.mumble.gg | Port » 21365 | Mot De Passe » 08082018")
+            .addField("Document DeathNote ▸", "https://lc.cx/deathnote")
+            .setFooter('Taupe`Info • mc.elitygames.fr')
+            .setColor('#F49301')
+            message.channel.sendEmbed(infos_embed);
+            if (message.guild != null){
+                message.delete();
+                }
+    }
+
+    let suggestions = message.guild.channels.find("name", "suggestions");
+if (message.channel === suggestions) {
+    message.react("✅").then(newMessage => {
+        message.react("❌")      
+    })
+}
+
+let game = message.guild.channels.find("name", "annonces-games");
+if (message.channel === game) {
+    message.react("✅").then(newMessage => {
+        message.react("🤔")
+        message.react("❌")
+    })
+}
+
+let proplayer = message.guild.channels.find("name", "propositions-joueurs");
+if (message.channel === proplayer) {
+    message.react("✅").then(newMessage => {
+        message.react("❌")      
+    })
+}
+
+});
+
