@@ -80,6 +80,7 @@ if (message.channel === game) {
 let proplayer = message.guild.channels.find("name", "propositions-joueurs");
 if (message.channel === proplayer) {
     message.react("✅").then(newMessage => {
+        message.react("🤔")
         message.react("❌")      
     })
 }
