@@ -18,7 +18,7 @@ bot.on("guildMemberAdd", member => {
 
 bot.on('message', message => {
     if(message.content[0] === prefix) {
-        if(message.content === prefix + 'game' + 'fortnite') {
+        if(message.content === prefix + 'fortnite') {
             let but = message.guild.roles.find('name', '• Fortnite •')
             if(message.member.roles.find('name', '• Fortnite •')) {
                 message.member.removeRole(but)
@@ -27,6 +27,22 @@ bot.on('message', message => {
             else {
                 message.member.addRole(but)
                 message.reply("rôle ``• Fortnite •`` ajouté.")
+            }
+        }
+    }
+})
+
+bot.on('message', message => {
+    if(message.content[0] === prefix) {
+        if(message.content === prefix + 'csgo') {
+            let but = message.guild.roles.find('name', '• CSGO •')
+            if(message.member.roles.find('name', '• CSGO •')) {
+                message.member.removeRole(but)
+                message.reply("rôle ``• CSGO •`` retiré.")
+            }
+            else {
+                message.member.addRole(but)
+                message.reply("rôle ``• CSGO •`` ajouté.")
             }
         }
     }
