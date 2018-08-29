@@ -49,6 +49,38 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => {
+    if(message.content[0] === prefix) {
+        if(message.content === prefix + 'pubg') {
+            let but = message.guild.roles.find('name', '• PUBG •')
+            if(message.member.roles.find('name', '• PUBG •')) {
+                message.member.removeRole(but)
+                message.reply("rôle ``• PUBG •`` retiré.")
+            }
+            else {
+                message.member.addRole(but)
+                message.reply("rôle ``• PUBG •`` ajouté.")
+            }
+        }
+    }
+})
+
+bot.on('message', message => {
+    if(message.content[0] === prefix) {
+        if(message.content === prefix + 'realm_royal') {
+            let but = message.guild.roles.find('name', '• Realm Royal •')
+            if(message.member.roles.find('name', '• Realm Royal •')) {
+                message.member.removeRole(but)
+                message.reply("rôle ``• Realm Royal •`` retiré.")
+            }
+            else {
+                message.member.addRole(but)
+                message.reply("rôle ``• Realm Royal •`` ajouté.")
+            }
+        }
+    }
+})
+
+bot.on('message', message => {
 
     if (message.content === prefix + "help"){
         var aide_embed = new Discord.RichEmbed()
@@ -64,42 +96,42 @@ bot.on('message', message => {
         }
     }
 
-    if (message.content === prefix + "infos"){
-        var infos_embed = new Discord.RichEmbed()
-            .setTitle("Taupe`Info • Informations")
-            .addField("Serveur ▸", "mc.elitygames.fr | Host 3")
-            .addField("Mumble ▸", "IP » pvelity.mumble.gg | Port » 21365 | Mot De Passe » 08082018")
-            .addField("Document DeathNote ▸", "https://lc.cx/deathnote")
-            .setFooter('Taupe`Info • mc.elitygames.fr')
-            .setColor('#F49301')
-            message.channel.sendEmbed(infos_embed);
-            if (message.guild != null){
-                message.delete();
-                }
-    }
+    //if (message.content === prefix + "infos"){
+        //var infos_embed = new Discord.RichEmbed()
+            //.setTitle("Taupe`Info • Informations")
+            //.addField("Serveur ▸", "mc.elitygames.fr | Host 3")
+            //.addField("Mumble ▸", "IP » pvelity.mumble.gg | Port » 21365 | Mot De Passe » 08082018")
+            //.addField("Document DeathNote ▸", "https://lc.cx/deathnote")
+            //.setFooter('Taupe`Info • mc.elitygames.fr')
+            //.setColor('#F49301')
+            //message.channel.sendEmbed(infos_embed);
+            //if (message.guild != null){
+                //message.delete();
+                //}
+    //}
 
-    let suggestions = message.guild.channels.find("name", "suggestions");
-if (message.channel === suggestions) {
-    message.react("✅").then(newMessage => {
-        message.react("❌")      
-    })
-}
+    //let suggestions = message.guild.channels.find("name", "suggestions");
+//if (message.channel === suggestions) {
+    //message.react("✅").then(newMessage => {
+        //message.react("❌")      
+    //})
+//}
 
-let game = message.guild.channels.find("name", "annonces-games");
-if (message.channel === game) {
-    message.react("✅").then(newMessage => {
-        message.react("🤔")
-        message.react("❌")
-    })
-}
+//let game = message.guild.channels.find("name", "annonces-games");
+//if (message.channel === game) {
+    //message.react("✅").then(newMessage => {
+        //message.react("🤔")
+        //message.react("❌")
+    //})
+//}
 
-let proplayer = message.guild.channels.find("name", "propositions-joueurs");
-if (message.channel === proplayer) {
-    message.react("✅").then(newMessage => {
-        message.react("🤔")
-        message.react("❌")      
-    })
-}
+//let proplayer = message.guild.channels.find("name", "propositions-joueurs");
+//if (message.channel === proplayer) {
+    //message.react("✅").then(newMessage => {
+        //message.react("🤔")
+        //message.react("❌")      
+    //})
+//}
 
 });
 
