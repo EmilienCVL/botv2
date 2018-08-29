@@ -138,6 +138,7 @@ bot.on('message', message => {
         var infos_embed = new Discord.RichEmbed()
             .setTitle("Nayiz Bot • Informations")
             .addField("Youtube ▸", "https://www.youtube.com/channel/UC_dfwlxCM7JMU9twB1qz4Hw")
+                    .addField("Steam ▸", "https://steamcommunity.com/profiles/76561194045404039")
             .addField("Twitter ▸", "https://twitter.com/Naiiz_L")
             .setFooter('• Nayiz Bot • By Draxiio')
             .setColor('#e7712c')
