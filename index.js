@@ -7,13 +7,13 @@ var prefix = ("!");
 bot.login(process.env.TOKEN);
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: 'être dev par Draxiio :v', type: 0} });
+    bot.user.setPresence({ game: { name: 'être dev par Draxiio c:', type: 0} });
     console.log("NayizBot ✔");
 });
 
 bot.on("guildMemberAdd", member => {
     let role = member.guild.roles.find("name", "Novice");
-    member.guild.channels.find("name", "join-leave-discord").send(`Salut mon chou 😀 Bienvenue dans la NayizFamm ${member.user.username}`)
+    member.guild.channels.find("name", "join-leave-discord").send(`Salut mon chou ! 😀 Bienvenue dans la NayizFamm ${member.user.username}`)
     member.addRole(role)
 });
 
@@ -102,8 +102,7 @@ bot.on('message', message => {
         }
     }
     
-    if (message.content === prefix + "roles")
-    if (message.channel === grades-bot){
+    if (message.content === prefix + "roles"){
         var roles_embed = new Discord.RichEmbed()
         .setTitle("Nayiz Bot • Rôles")
         .addField("Fortnite ▸", "!fortnite")
