@@ -87,6 +87,22 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => {
+    if(message.content[0] === prefix) {
+        if(message.content === prefix + 'rocket_league') {
+            let but = message.guild.roles.find('name', '• Rocket League •')
+            if(message.member.roles.find('name', '• Rocket League •')) {
+                message.member.removeRole(but)
+                message.reply("rôle ``• Rocket League •`` retiré.")
+            }
+            else {
+                message.member.addRole(but)
+                message.reply("rôle ``• Rocket League •`` ajouté.")
+            }
+        }
+    }
+})
+
+bot.on('message', message => {
 
     if (message.content === prefix + "help"){
         var aide_embed = new Discord.RichEmbed()
@@ -94,7 +110,7 @@ bot.on('message', message => {
         .addField("!help", "Accès aux commandes du Nayizz Bot.")
         .addField("!roles", "Accès aux différents rôles.")
         .addField("!infos", "Informations relatives à Nayizz.")
-        .setFooter('• Nayiz Bot •')
+        .setFooter('• Nayiz Bot • By Draxiio')
         .setColor('#e7712c')
         message.channel.sendEmbed(aide_embed);
         if (message.guild != null){
@@ -109,7 +125,7 @@ bot.on('message', message => {
         .addField("CSGO ▸", "!csgo")
         .addField("PUBG ▸", "!pubg")
         .addField("Realm Royal ▸", "!realm_royal")
-        .setFooter('• Nayiz Bot •')
+        .setFooter('• Nayiz Bot • By Draxiio')
         .setColor('#e7712c')
         message.channel.sendEmbed(roles_embed);
         if (message.guild != null){
@@ -122,7 +138,7 @@ bot.on('message', message => {
             .setTitle("Nayiz Bot • Informations")
             .addField("Youtube ▸", "https://www.youtube.com/channel/UC_dfwlxCM7JMU9twB1qz4Hw")
             .addField("Twitter ▸", "https://twitter.com/Naiiz_L")
-            .setFooter('• Nayiz Bot •')
+            .setFooter('• Nayiz Bot • By Draxiio')
             .setColor('#e7712c')
             message.channel.sendEmbed(infos_embed);
             if (message.guild != null){
