@@ -8,7 +8,7 @@ bot.login(process.env.TOKEN);
 
 bot.on('ready', () => {
     bot.user.setPresence({ game: { name: 'être dev par Draxiio :)', type: 0} });
-    console.log("NayizzBot ✔");
+    console.log("NayizBot ✔");
 });
 
 bot.on("guildMemberAdd", member => {
@@ -90,11 +90,11 @@ bot.on('message', message => {
 
     if (message.content === prefix + "help"){
         var aide_embed = new Discord.RichEmbed()
-        .setTitle("Nayizz Bot • Help")
+        .setTitle("Nayiz Bot • Help")
         .addField("!help", "Accès aux commandes du Nayizz Bot.")
         .addField("!roles", "Accès aux différents rôles.")
         .addField("!infos", "Informations relatives à Nayizz.")
-        .setFooter('• Nayizz Bot •')
+        .setFooter('• Nayiz Bot •')
         .setColor('#e7712c')
         message.channel.sendEmbed(aide_embed);
         if (message.guild != null){
@@ -104,12 +104,12 @@ bot.on('message', message => {
     
     if (message.content === prefix + "roles"){
         var roles_embed = new Discord.RichEmbed()
-        .setTitle("Nayizz Bot • Rôles")
+        .setTitle("Nayiz Bot • Rôles")
         .addField("Fortnite ▸", "!fortnite")
         .addField("CSGO ▸", "!csgo")
         .addField("PUBG ▸", "!pubg")
         .addField("Realm Royal ▸", "!realm_royal")
-        .setFooter('• Nayizz Bot •')
+        .setFooter('• Nayiz Bot •')
         .setColor('#e7712c')
         message.channel.sendEmbed(roles_embed);
         if (message.guild != null){
@@ -119,10 +119,10 @@ bot.on('message', message => {
 
     if (message.content === prefix + "infos"){
         var infos_embed = new Discord.RichEmbed()
-            .setTitle("Nayizz Bot • Informations")
+            .setTitle("Nayiz Bot • Informations")
             .addField("Youtube ▸", "https://www.youtube.com/channel/UC_dfwlxCM7JMU9twB1qz4Hw")
             .addField("Twitter ▸", "https://twitter.com/Naiiz_L")
-            .setFooter('• Nayizz Bot •')
+            .setFooter('• Nayiz Bot •')
             .setColor('#e7712c')
             message.channel.sendEmbed(infos_embed);
             if (message.guild != null){
