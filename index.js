@@ -107,9 +107,9 @@ bot.on('message', message => {
     if (message.content === prefix + "help"){
         var aide_embed = new Discord.RichEmbed()
         .setTitle("Nayiz Bot • Help")
-        .addField("!help", "Accès aux commandes du Nayizz Bot.")
+        .addField("!help", "Accès aux commandes du Nayiz Bot.")
         .addField("!roles", "Accès aux différents rôles.")
-        .addField("!infos", "Informations relatives à Nayizz.")
+        .addField("!infos", "Informations relatives à Nayiz.")
         .setFooter('• Nayiz Bot • By Draxiio')
         .setColor('#e7712c')
         message.channel.sendEmbed(aide_embed);
