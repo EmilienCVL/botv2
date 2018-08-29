@@ -13,8 +13,14 @@ bot.on('ready', () => {
 
 bot.on("guildMemberAdd", member => {
     let role = member.guild.roles.find("name", "Novice");
+    member.guild.channels.find("name", "join-leave-discord").send(`Bienvenue ${member.user.username} [Phrase Bienvenue]`)
     member.addRole(role)
 });
+
+bot.on("guildMemberRemove", member => {
+    member.guild.channels.find("name", "join-leave-discord").send(`${member.user.username} à quitté le discord.`)
+});
+
 
 bot.on('message', message => {
     if(message.content[0] === prefix) {
@@ -84,17 +90,31 @@ bot.on('message', message => {
 
     if (message.content === prefix + "help"){
         var aide_embed = new Discord.RichEmbed()
-        .setTitle("Taupe`Info • Help")
-        .addField("!help", "Accès aux commandes de Taupe`Info.")
-        .addField("!infos", "Informations relatives au Mumble, Serveur ...")
-        .addField("!notif", "Vous permet d'être notifié ou non pour les annonces.")
-        .setFooter('Taupe`Info • mc.elitygames.fr')
-        .setColor('#F49301')
+        .setTitle("Nayizz Bot • Help")
+        .addField("!help", "Accès aux commandes du Nayiz Bot.")
+        .addField("!roles", "Accès au commandes des rôles.")
+        .setFooter('• Nayizz Bot •')
+        .setColor('#e7712c')
         message.channel.sendEmbed(aide_embed);
         if (message.guild != null){
             message.delete();
         }
     }
+    
+    if (message.content === prefix + "role"){
+        var role_embed = new Discord.RichEmbed()
+        .setTitle("Nayizz Bot • Rôles")
+        .addField("Fortnite ▸", "!fortnite")
+        .addField("CSGO ▸", "!csgo")
+        .addField("PUBG ▸", "!pubg")
+        .addField("Realm Royal ▸", "!realm_royal")
+        .setFooter('• Nayizz Bot •')
+        .setColor('#e7712c')
+        message.channel.sendEmbed(role_embed);
+        if (message.guild != null){
+            message.delete();
+        }
+    }     
 
     //if (message.content === prefix + "infos"){
         //var infos_embed = new Discord.RichEmbed()
