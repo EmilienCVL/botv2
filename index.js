@@ -173,7 +173,8 @@ Les soundboards et modification de voix sont prohibés.
 Votre pseudonyme doit être facilement mentionnable sur le serveur.
 
 Au moment où vous rejoignez ce Discord, vous acceptez automatiquement de respecter ce règlement.`);
-        }
+     }
+}
     
 
     //let suggestions = message.guild.channels.find("name", "suggestions");
