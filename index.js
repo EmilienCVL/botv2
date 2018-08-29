@@ -12,21 +12,21 @@ bot.on('ready', () => {
 });
 
 bot.on("guildMemberAdd", member => {
-    let role = member.guild.roles.find("name", "• Joueur");
+    let role = member.guild.roles.find("name", "Novice");
     member.addRole(role)
 });
 
 bot.on('message', message => {
     if(message.content[0] === prefix) {
-        if(message.content === prefix + 'notif') {
-            let but = message.guild.roles.find('name', '• Notif Game')
-            if(message.member.roles.find('name', '• Notif Game')) {
+        if(message.content === prefix + 'game' + 'fortnite') {
+            let but = message.guild.roles.find('name', '• Fortnite •')
+            if(message.member.roles.find('name', '• Fortnite •')) {
                 message.member.removeRole(but)
-                message.reply("notifications désactivées.")
+                message.reply("rôle ``• Fortnite •`` retiré.")
             }
             else {
                 message.member.addRole(but)
-                message.reply("notifications activées.")
+                message.reply("rôle ``• Fortnite •`` ajouté.")
             }
         }
     }
