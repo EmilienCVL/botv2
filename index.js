@@ -8,7 +8,7 @@ bot.login(process.env.TOKEN);
 
 bot.on('ready', () => {
     bot.user.setPresence({ game: { name: 'être dev par Draxiio_', type: 0} });
-    console.log("Taupe'Info ✔");
+    console.log("NayizzBot ✔");
 });
 
 bot.on("guildMemberAdd", member => {
@@ -91,8 +91,9 @@ bot.on('message', message => {
     if (message.content === prefix + "help"){
         var aide_embed = new Discord.RichEmbed()
         .setTitle("Nayizz Bot • Help")
-        .addField("!help", "Accès aux commandes du Nayiz Bot.")
-        .addField("!roles", "Accès au commandes des rôles.")
+        .addField("!help", "Accès aux commandes du Nayizz Bot.")
+        .addField("!roles", "Accès aux différents rôles.")
+        .addField("!infos", "Informations relatives à Nayizz."
         .setFooter('• Nayizz Bot •')
         .setColor('#e7712c')
         message.channel.sendEmbed(aide_embed);
@@ -101,34 +102,33 @@ bot.on('message', message => {
         }
     }
     
-    if (message.content === prefix + "role"){
-        var role_embed = new Discord.RichEmbed()
+    if (message.content === prefix + "roles"){
+        var roles_embed = new Discord.RichEmbed()
         .setTitle("Nayizz Bot • Rôles")
-        .addField("Fortnite ▸", "!fortnite", " ")
-        .addField("CSGO ▸", "!csgo", " ")
-        .addField("PUBG ▸", "!pubg", " ")
-        .addField("Realm Royal ▸", "!realm_royal", " ")
+        .addField("Fortnite ▸", "!fortnite")
+        .addField("CSGO ▸", "!csgo")
+        .addField("PUBG ▸", "!pubg")
+        .addField("Realm Royal ▸", "!realm_royal")
         .setFooter('• Nayizz Bot •')
         .setColor('#e7712c')
-        message.channel.sendEmbed(role_embed);
+        message.channel.sendEmbed(roles_embed);
         if (message.guild != null){
             message.delete();
         }
     }     
 
-    //if (message.content === prefix + "infos"){
-        //var infos_embed = new Discord.RichEmbed()
-            //.setTitle("Taupe`Info • Informations")
-            //.addField("Serveur ▸", "mc.elitygames.fr | Host 3")
-            //.addField("Mumble ▸", "IP » pvelity.mumble.gg | Port » 21365 | Mot De Passe » 08082018")
-            //.addField("Document DeathNote ▸", "https://lc.cx/deathnote")
-            //.setFooter('Taupe`Info • mc.elitygames.fr')
-            //.setColor('#F49301')
-            //message.channel.sendEmbed(infos_embed);
-            //if (message.guild != null){
-                //message.delete();
-                //}
-    //}
+    if (message.content === prefix + "infos"){
+        var infos_embed = new Discord.RichEmbed()
+            .setTitle("Nayizz Bot • Informations")
+            .addField("Youtube ▸", "https://www.youtube.com/channel/UC_dfwlxCM7JMU9twB1qz4Hw")
+            .addField("Twitter ▸", "https://twitter.com/Naiiz_L")
+            .setFooter('• Nayizz Bot •')
+            .setColor('#e7712c')
+            message.channel.sendEmbed(infos_embed);
+            if (message.guild != null){
+                message.delete();
+                }
+    }
 
     //let suggestions = message.guild.channels.find("name", "suggestions");
 //if (message.channel === suggestions) {
