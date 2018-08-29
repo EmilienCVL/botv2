@@ -13,7 +13,7 @@ bot.on('ready', () => {
 
 bot.on("guildMemberAdd", member => {
     let role = member.guild.roles.find("name", "Novice");
-    member.guild.channels.find("name", "join-leave-discord").send(`Bienvenue ${member.user.username} [Phrase Bienvenue]`)
+    member.guild.channels.find("name", "join-leave-discord").send(`Salut mon chou 😀 Bienvenue dans la NayizFamm ${member.user.username}`)
     member.addRole(role)
 });
 
@@ -102,7 +102,8 @@ bot.on('message', message => {
         }
     }
     
-    if (message.content === prefix + "roles"){
+    if (message.content === prefix + "roles")
+    if (message.channel === grades-bot){
         var roles_embed = new Discord.RichEmbed()
         .setTitle("Nayiz Bot • Rôles")
         .addField("Fortnite ▸", "!fortnite")
