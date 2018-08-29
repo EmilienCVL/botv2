@@ -7,7 +7,7 @@ var prefix = ("!");
 bot.login(process.env.TOKEN);
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: 'être dev par Draxiio c:', type: 0} });
+    bot.user.setPresence({ game: { name: 'se défouler sur des Bambis', type: 0} });
     console.log("NayizBot ✔");
 });
 
