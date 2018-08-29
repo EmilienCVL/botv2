@@ -125,6 +125,7 @@ bot.on('message', message => {
         .addField("CSGO ▸", "!csgo")
         .addField("PUBG ▸", "!pubg")
         .addField("Realm Royal ▸", "!realm_royal")
+        .addField("Rocket League ▸", "!rocket_league")
         .setFooter('• Nayiz Bot • By Draxiio')
         .setColor('#e7712c')
         message.channel.sendEmbed(roles_embed);
