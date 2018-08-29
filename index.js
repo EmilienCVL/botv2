@@ -7,7 +7,7 @@ var prefix = ("!");
 bot.login(process.env.TOKEN);
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: 'être dev par Draxiio_', type: 0} });
+    bot.user.setPresence({ game: { name: 'être dev par Draxiio :)', type: 0} });
     console.log("NayizzBot ✔");
 });
 
@@ -93,7 +93,7 @@ bot.on('message', message => {
         .setTitle("Nayizz Bot • Help")
         .addField("!help", "Accès aux commandes du Nayizz Bot.")
         .addField("!roles", "Accès aux différents rôles.")
-        .addField("!infos", "Informations relatives à Nayizz."
+        .addField("!infos", "Informations relatives à Nayizz.")
         .setFooter('• Nayizz Bot •')
         .setColor('#e7712c')
         message.channel.sendEmbed(aide_embed);
