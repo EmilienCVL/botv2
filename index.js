@@ -118,7 +118,7 @@ bot.on('message', message => {
         }
     }
     
-mbot.on('message', data => {
+bot.on('message', data => {
   if (data.content === '!AdroFoListo') {
     data.channel.send(`Bonjour et bienvenue sur le discord communautaire de NayizFamm !
 
