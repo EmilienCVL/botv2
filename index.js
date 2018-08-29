@@ -118,33 +118,6 @@ bot.on('message', message => {
         }
     }
     
-bot.on('message', data => {
-  if (data.content === '!AdroFoListo') {
-    data.channel.send(`Bonjour et bienvenue sur le discord communautaire de NayizFamm !
-
-:page_with_curl: Quelques points importants à respecter pour une bonne entente ;
-
-``Restez respectueux et polis avec tout le monde.
-Toute forme de discrimination est strictement interdite.
-Merci de bien vouloir rester impartial avec tous les serveurs présents sur ce Discord.
-Les pseudonymes et les noms de jeux inappropriés ainsi que l'usurpation d'identité est strictement interdit.``
-
-:book: Au niveau des discussions, tout ce qui est compris ici sera sanctionné ;
-
-``Les sujets / contenus pédophiles, pornographiques, religieux ou de propagande sont interdits.
-Tout spam abusif (y compris le spam de mentions), troll, spoil ou provocation.
-La diffusion d'informations privées, personnelles ou pas est strictement interdite.
-La publicité en toute forme est autorisée seulement dans le salon textuel #spam-pub.
-Le NSFW dans sa globalité est prohibée.
-Le spam auditif, les screamers audios ainsi que le troll sont strictement interdits.
-Le changement répétitif de channel est interdit.
-Les soundboards et modification de voix sont prohibés.
-Votre pseudonyme doit être facilement mentionnable sur le serveur.``
-
-Au moment où vous rejoignez ce Discord, vous acceptez automatiquement de respecter ce règlement.`);
-  }
-
-    
     if (message.content === prefix + "roles"){
         var roles_embed = new Discord.RichEmbed()
         .setTitle("Nayiz Bot • Rôles")
@@ -174,6 +147,34 @@ Au moment où vous rejoignez ce Discord, vous acceptez automatiquement de respec
                 message.delete();
                 }
     }
+
+    bot.on('message', message => {
+        
+        if(message.content === prefix + "qsdfuihcuy"){
+            message.reply(`Bonjour et bienvenue sur le discord communautaire de NayizFamm !
+
+:page_with_curl: Quelques points importants à respecter pour une bonne entente ;
+
+``Restez respectueux et polis avec tout le monde.
+Toute forme de discrimination est strictement interdite.
+Merci de bien vouloir rester impartial avec tous les serveurs présents sur ce Discord.
+Les pseudonymes et les noms de jeux inappropriés ainsi que l'usurpation d'identité est strictement interdit.``
+
+:book: Au niveau des discussions, tout ce qui est compris ici sera sanctionné ;
+
+``Les sujets / contenus pédophiles, pornographiques, religieux ou de propagande sont interdits.
+Tout spam abusif (y compris le spam de mentions), troll, spoil ou provocation.
+La diffusion d'informations privées, personnelles ou pas est strictement interdite.
+La publicité en toute forme est autorisée seulement dans le salon textuel #spam-pub.
+Le NSFW dans sa globalité est prohibée.
+Le spam auditif, les screamers audios ainsi que le troll sont strictement interdits.
+Le changement répétitif de channel est interdit.
+Les soundboards et modification de voix sont prohibés.
+Votre pseudonyme doit être facilement mentionnable sur le serveur.``
+
+Au moment où vous rejoignez ce Discord, vous acceptez automatiquement de respecter ce règlement.`);
+        }
+    
 
     //let suggestions = message.guild.channels.find("name", "suggestions");
 //if (message.channel === suggestions) {
