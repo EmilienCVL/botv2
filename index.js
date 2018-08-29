@@ -7,7 +7,7 @@ var prefix = ("!");
 bot.login(process.env.TOKEN);
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: 'être dev par Draxiio', type: 0} });
+    bot.user.setPresence({ game: { name: 'être dev par Draxiio_', type: 0} });
     console.log("Taupe'Info ✔");
 });
 
@@ -104,10 +104,10 @@ bot.on('message', message => {
     if (message.content === prefix + "role"){
         var role_embed = new Discord.RichEmbed()
         .setTitle("Nayizz Bot • Rôles")
-        .addField("Fortnite ▸", "!fortnite")
-        .addField("CSGO ▸", "!csgo")
-        .addField("PUBG ▸", "!pubg")
-        .addField("Realm Royal ▸", "!realm_royal")
+        .addField("Fortnite ▸", "!fortnite", " ")
+        .addField("CSGO ▸", "!csgo", " ")
+        .addField("PUBG ▸", "!pubg", " ")
+        .addField("Realm Royal ▸", "!realm_royal", " ")
         .setFooter('• Nayizz Bot •')
         .setColor('#e7712c')
         message.channel.sendEmbed(role_embed);
